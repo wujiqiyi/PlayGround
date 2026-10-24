@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#04060f" />
+    <meta name="description" content="Starlight Drift - a neon 3D arcade flight game for phone, tablet and desktop." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <title>Starlight Drift</title>
+    <script type="module" crossorigin src="./assets/index-QW7UXvdS.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ClWsupcl.css">
+  </head>
+  <body data-playing="false">
+    <canvas id="game-canvas" aria-label="Starlight Drift 3D game"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header id="hud" aria-hidden="true">
+      <div class="hud-block hud-score">
+        <span class="hud-label">Score</span>
+        <span id="score" class="hud-value">00000</span>
+        <span id="combo" class="hud-combo">x1</span>
+      </div>
+      <div class="hud-block hud-shield">
+        <span class="hud-label">Hull</span>
+        <div id="shield-pips" class="pips">
+          <i></i><i></i><i></i>
+        </div>
+      </div>
+      <div class="hud-block hud-speed">
+        <span class="hud-label">Velocity</span>
+        <span id="speed" class="hud-value">000</span>
+      </div>
+    </header>
+
+    <div id="hint" class="hint" aria-hidden="true">
+      <span class="hint-dot"></span>
+      Drag to steer <span class="hint-sep">/</span> A&nbsp;D or arrows
+    </div>
+
+    <button id="mute" class="icon-button" type="button" aria-label="Mute audio" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path class="speaker" d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" />
+        <path class="wave wave-one" d="M15.2 8.6a4.8 4.8 0 0 1 0 6.8" />
+        <path class="wave wave-two" d="M17.8 6a8.4 8.4 0 0 1 0 12" />
+        <path class="slash" d="M5 19 19 5" />
+      </svg>
+    </button>
+
+    <section id="start-screen" class="overlay">
+      <div class="start-card">
+        <p class="eyebrow"><span></span> Neon arcade flight <span></span></p>
+        <h1>Starlight<br /><em>Drift</em></h1>
+        <p class="tagline">Thread the rings. Harvest the light.<br />Outrun the dark.</p>
+        <button id="start-button" class="primary-button" type="button">
+          <span>Start Game</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+        </button>
+        <div class="control-row">
+          <div class="control">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3" /><path d="M11 18.5h2" /></svg>
+            <span>Drag to steer</span>
+          </div>
+          <div class="control">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18M3 16h18M7 4.5v3M11 4.5v3M15 4.5v3M7 16.5v3M11 16.5v3M15 16.5v3" /></svg>
+            <span>Keys or touch</span>
+          </div>
+          <div class="control">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 21 7v10l-9 4.2L3 17V7z" /><path d="m3 7 9 4.2L21 7M12 11.2v10" /></svg>
+            <span>Collect orbs</span>
+          </div>
+        </div>
+        <p class="best-line">Best run <strong id="menu-best">0</strong></p>
+      </div>
+      <p class="credits">Built for phone, tablet &amp; desktop</p>
+    </section>
+
+    <section id="over-screen" class="overlay hidden">
+      <div class="over-card">
+        <p class="eyebrow"><span></span> Run complete <span></span></p>
+        <h2>Signal Lost</h2>
+        <p class="over-label">Final score</p>
+        <p id="final-score" class="final-score">0</p>
+        <p id="new-best" class="new-best hidden">New personal best</p>
+        <p class="over-best">Best <strong id="final-best">0</strong></p>
+        <button id="again-button" class="primary-button" type="button">
+          <span>Play Again</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 6.3M20 4v7h-7" /></svg>
+        </button>
+      </div>
+    </section>
+
+    <div id="flash" class="flash" aria-hidden="true"></div>
+    <div id="toast" class="toast" aria-hidden="true"></div>
+
+  </body>
+</html>
