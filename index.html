@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#08030f" />
+    <meta name="description" content="Neon Drift — 一款为手机与平板打造的霓虹 3D 竞速游戏。" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Neon Drift · 3D 霓虹竞速</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" aria-label="Neon Drift 3D 游戏画面"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="scanlines" aria-hidden="true"></div>
+
+      <header class="hud" id="hud">
+        <div class="brand" aria-hidden="true">NEON<span>DRIFT</span></div>
+        <div class="readouts">
+          <div class="readout">
+            <span>SCORE</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="readout shards">
+            <span>SHARDS</span>
+            <strong id="shards">0</strong>
+          </div>
+          <div class="readout best">
+            <span>BEST</span>
+            <strong id="best">0</strong>
+          </div>
+        </div>
+        <button id="pause" class="icon-btn" aria-label="暂停游戏" type="button">
+          <span class="pause-bars" aria-hidden="true"></span>
+        </button>
+      </header>
+
+      <div class="speed-wrap" id="speedWrap" aria-hidden="true">
+        <span>SPEED</span>
+        <div class="speed-track"><div class="speed-fill" id="speedFill"></div></div>
+        <em id="speedLabel">1.0x</em>
+      </div>
+
+      <p class="control-hint" id="controlHint">拖动屏幕转向 · 收集能量碎片 · 躲开路障</p>
+
+      <div class="overlay overlay-start" id="startOverlay">
+        <div class="start-inner">
+          <p class="eyebrow">ARCADE / ENDLESS RUN</p>
+          <h1 class="title">NEON<br /><span>DRIFT</span></h1>
+          <p class="tagline">穿梭于落日与霓虹之间，<br />在无限公路上漂移、收集、生存。</p>
+          <div class="start-stats">
+            <div><span>最佳分数</span><strong id="menuBest">0</strong></div>
+            <div><span>能量碎片</span><strong>+25</strong></div>
+          </div>
+          <button id="play-button" class="play-btn" type="button" aria-label="Play">
+            <span class="play-icon" aria-hidden="true"></span>
+            <span class="play-label">Play</span>
+          </button>
+          <p class="footnote">手机 / 平板：拖动转向 &nbsp;·&nbsp; 桌面：← → 或 A D</p>
+        </div>
+      </div>
+
+      <div class="overlay overlay-pause" id="pauseOverlay" hidden>
+        <div class="panel">
+          <p class="eyebrow">SYSTEM HOLD</p>
+          <h2>PAUSED</h2>
+          <p class="panel-copy">你的引擎正在待命。</p>
+          <button id="resume-button" class="play-btn small" type="button">
+            <span class="play-icon" aria-hidden="true"></span>
+            <span class="play-label">Resume</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="overlay overlay-over" id="overOverlay" hidden>
+        <div class="panel">
+          <p class="eyebrow">RUN COMPLETE</p>
+          <h2>WIPEOUT</h2>
+          <div class="over-stats">
+            <div><span>本期分数</span><strong id="finalScore">0</strong></div>
+            <div><span>收集碎片</span><strong id="finalShards">0</strong></div>
+            <div><span>最佳纪录</span><strong id="finalBest">0</strong></div>
+          </div>
+          <button id="replay-button" class="play-btn small" type="button" aria-label="Play Again">
+            <span class="play-icon" aria-hidden="true"></span>
+            <span class="play-label">Play Again</span>
+          </button>
+          <p class="footnote">按 Enter 立即重开</p>
+        </div>
+      </div>
+
+      <div class="rotate-note" id="rotateNote">
+        <span>↻</span> 横屏体验更佳
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
